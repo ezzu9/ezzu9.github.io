@@ -252,44 +252,34 @@
   }
   @media (min-width: 1000px) { .hero-accent { display: block; } }
 
-  /* Stats strip */
-  .stats-strip {
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    background: var(--bg2);
-    padding: 0 48px;
+  /* Project metrics row */
+  .project-metrics {
+    display: flex;
+    gap: 2px;
+    margin-bottom: 24px;
   }
-  .stats-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+  .project-metric-item {
+    flex: 1;
+    background: rgba(99,211,161,0.05);
+    border: 1px solid rgba(99,211,161,0.12);
+    border-radius: 6px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
   }
-  .stat {
-    padding: 32px 0;
-    border-right: 1px solid var(--border);
-    padding-left: 0;
-    padding-right: 40px;
-  }
-  .stat:first-child { padding-left: 0; }
-  .stat:last-child { border-right: none; padding-left: 40px; }
-  .stat:nth-child(2) { padding-left: 40px; }
-  .stat-num {
-    font-size: 36px;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    color: var(--text);
-    display: block;
-  }
-  .stat-num span { color: var(--accent); }
-  .stat-label {
+  .metric-val {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--accent);
+  }
+  .metric-lbl {
+    font-family: var(--font-mono);
+    font-size: 10px;
     color: var(--text-muted);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-top: 4px;
-    display: block;
+    letter-spacing: 0.08em;
   }
 
   /* Section layout */
@@ -398,17 +388,7 @@
     background: var(--bg3);
   }
 
-  .project-metric {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    color: var(--accent);
-    background: rgba(99,211,161,0.06);
-    border: 1px solid rgba(99,211,161,0.15);
-    border-radius: 4px;
-    padding: 4px 10px;
-    display: inline-block;
-    margin-bottom: 28px;
-  }
+
 
   .project-links {
     display: flex;
@@ -642,11 +622,6 @@
     .nav-links { gap: 16px; }
     .section-wrap { padding: 64px 24px; }
     #hero { padding: 100px 24px 60px; }
-    .stats-strip { padding: 0 24px; }
-    .stats-inner { grid-template-columns: 1fr; }
-    .stat { border-right: none; border-bottom: 1px solid var(--border); padding: 24px 0; }
-    .stat:last-child { border-bottom: none; }
-    .stat:nth-child(2) { padding-left: 0; }
     .connect-inner { padding: 64px 24px; }
     footer { padding: 20px 24px; flex-direction: column; gap: 8px; }
     .skills-grid { grid-template-columns: 1fr 1fr; }
@@ -690,23 +665,7 @@
   <div class="hero-accent"></div>
 </section>
 
-<!-- Stats -->
-<div class="stats-strip">
-  <div class="stats-inner">
-    <div class="stat">
-      <span class="stat-num">87<span>%</span></span>
-      <span class="stat-label">Cancer cell classification accuracy</span>
-    </div>
-    <div class="stat">
-      <span class="stat-num">3<span>+</span></span>
-      <span class="stat-label">Live AI apps deployed</span>
-    </div>
-    <div class="stat">
-      <span class="stat-num">0.88</span>
-      <span class="stat-label">Macro F1 score · ResNet50 model</span>
-    </div>
-  </div>
-</div>
+
 
 <!-- Projects -->
 <section id="projects">
@@ -732,7 +691,11 @@
           <span class="tag">Streamlit</span>
           <span class="tag">Transfer Learning</span>
         </div>
-        <div class="project-metric">87.34% accuracy · 0.88 macro F1</div>
+        <div class="project-metrics">
+          <div class="project-metric-item"><span class="metric-val">87.34%</span><span class="metric-lbl">Accuracy</span></div>
+          <div class="project-metric-item"><span class="metric-val">0.88</span><span class="metric-lbl">Macro F1</span></div>
+          <div class="project-metric-item"><span class="metric-val">5</span><span class="metric-lbl">MoA classes</span></div>
+        </div>
         <div class="project-links">
           <a href="https://breast-cancer-moa-classifier.streamlit.app" target="_blank" class="project-link">
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1v-3M9 2h5m0 0v5m0-5L7 10"/></svg>
@@ -762,7 +725,11 @@
           <span class="tag">HuggingFace</span>
           <span class="tag">NLP</span>
         </div>
-        <div class="project-metric">Batch CSV · Confidence scores · Interactive charts</div>
+        <div class="project-metrics">
+          <div class="project-metric-item"><span class="metric-val">RoBERTa</span><span class="metric-lbl">Model</span></div>
+          <div class="project-metric-item"><span class="metric-val">Batch</span><span class="metric-lbl">CSV support</span></div>
+          <div class="project-metric-item"><span class="metric-val">Live</span><span class="metric-lbl">Deployed</span></div>
+        </div>
         <div class="project-links">
           <a href="https://ertaza-sentiment-analysis.streamlit.app" target="_blank" class="project-link">
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1v-3M9 2h5m0 0v5m0-5L7 10"/></svg>
@@ -862,7 +829,7 @@
           <div class="edu-school">Anglia Ruskin University · Cambridge</div>
           <div class="edu-detail">Final year project: Cancer Cell MoA Classification using ResNet50 transfer learning</div>
         </div>
-        <div class="exp-date">Graduated 2025</div>
+        <div class="exp-date">Graduated 2026</div>
       </div>
 
     </div>
