@@ -252,8 +252,8 @@
   }
   @media (min-width: 1000px) { .hero-accent { display: block; } }
 
-  .project-full { grid-column: span 2; }
-  @media (max-width: 800px) { .project-full { grid-column: span 1; } }
+  .project-full { grid-column: 1 / -1; }
+  @media (max-width: 800px) { .project-full { grid-column: 1; } }
 
   /* Project metrics row */
   .project-metrics {
@@ -324,7 +324,10 @@
     gap: 2px;
   }
 
-  @media (max-width: 800px) { .projects-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 800px) { 
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-full { grid-column: 1 !important; }
+  }
 
   .project-card {
     background: var(--bg2);
